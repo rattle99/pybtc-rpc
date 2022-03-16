@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pybtc-rpc"
+version = "0.1.0"
+description = "Wrapper for bitcoind RPC calls."
+authors = ["rattle99 <24495512+rattle99@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.27.1"
+tqdm = "^4.62.3"
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^6.8.0"
+autopep8 = "^1.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
