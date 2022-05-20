@@ -77,11 +77,12 @@ class rpc(object):
         result = response.json()['result']
         return result
 
-    def getBlockStats(self, blockHash):
+    def getBlockStats(self, blockHash, fields=None):
         """Compute block statistics for a given block
 
         Args:
             blockHash (str): block hash
+            fields (list): list of parameters to fetch
 
         Returns:
             dict: different calculated stats for a given block
@@ -89,6 +90,8 @@ class rpc(object):
 
         self.payload["method"] = "getblockstats"
         self.payload["params"] = [blockHash]
+        if fields is not None:
+            self.payload["params"].append(fields)
 
         response = self.session.post(
             self.URL, json=self.payload, headers=self.headers)
@@ -110,7 +113,7 @@ class rpc(object):
         result = response.json()['result']
         return result
 
-    def getBlockCount(self) -> int:
+    def getBlockCount(self):
         """Returns current block count in local chain.
 
         Returns:
